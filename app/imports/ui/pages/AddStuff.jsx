@@ -10,6 +10,7 @@ import { Stuffs } from '../../api/stuff/Stuff';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
+  category: String,
   quantity: Number,
   condition: {
     type: String,
@@ -25,10 +26,10 @@ const AddStuff = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, quantity, condition } = data;
+    const { name, category, quantity, condition } = data;
     const owner = Meteor.user().username;
     Stuffs.collection.insert(
-      { name, quantity, condition, owner },
+      { name, category, quantity, condition, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -51,6 +52,7 @@ const AddStuff = () => {
             <Card>
               <Card.Body>
                 <TextField name="name" />
+                <TextField name="category" />
                 <NumField name="quantity" decimal={null} />
                 <SelectField name="condition" />
                 <SubmitField value="Submit" />

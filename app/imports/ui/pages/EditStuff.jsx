@@ -32,8 +32,8 @@ const EditStuff = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, quantity, condition } = data;
-    Stuffs.collection.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
+    const { name, category, quantity, condition } = data;
+    Stuffs.collection.update(_id, { $set: { name, category, quantity, condition } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -47,6 +47,7 @@ const EditStuff = () => {
             <Card>
               <Card.Body>
                 <TextField name="name" />
+                <TextField name="category" />
                 <NumField name="quantity" decimal={null} />
                 <SelectField name="condition" />
                 <SubmitField value="Submit" />

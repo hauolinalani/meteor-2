@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const StuffItemAdmin = ({ stuff }) => (
   <tr>
     <td>{stuff.name}</td>
+    <td>{stuff.category}</td>
     <td>{stuff.quantity}</td>
     <td>{stuff.condition}</td>
     <td>{stuff.owner}</td>
@@ -15,6 +16,7 @@ const StuffItemAdmin = ({ stuff }) => (
 StuffItemAdmin.propTypes = {
   stuff: PropTypes.shape({
     name: PropTypes.string,
+    category: PropTypes.string,
     quantity: PropTypes.number,
     condition: PropTypes.string,
     _id: PropTypes.string,

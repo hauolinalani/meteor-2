@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const StuffItem = ({ stuff }) => (
   <tr>
     <td>{stuff.name}</td>
+    <td>{stuff.category}</td>
     <td>{stuff.quantity}</td>
     <td>{stuff.condition}</td>
     <td>
@@ -18,6 +19,7 @@ const StuffItem = ({ stuff }) => (
 StuffItem.propTypes = {
   stuff: PropTypes.shape({
     name: PropTypes.string,
+    category: PropTypes.string,
     quantity: PropTypes.number,
     condition: PropTypes.string,
     _id: PropTypes.string,
